@@ -20,7 +20,7 @@ udp_ports = []
 
 def scan_tcp(host, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(0.1)
+    s.settimeout(0.5)
     try:
         s.connect((host, port))
         print(Fore.GREEN + Style.DIM + f"TCP port {port} is open")
@@ -31,7 +31,7 @@ def scan_tcp(host, port):
 
 def scan_udp(host, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.settimeout(0.1)
+    s.settimeout(0.5)
     if port == 53:
         data = struct.pack("!HHHHHH", 1, 0, 1, 0, 0, 0)
         data += b"\x03www\x07example\x03com\x00"
