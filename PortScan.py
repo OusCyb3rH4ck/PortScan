@@ -60,7 +60,7 @@ if __name__ == '__main__':
     
     os.system("ulimit -n 5100")
     
-    executor = concurrent.futures.ThreadPoolExecutor(max_workers=5000)
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=4500)
 
     executor.map(scan_tcp, [host] * 65535, range(1, 65536))
     print("\n")
